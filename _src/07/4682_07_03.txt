@@ -1,0 +1,3 @@
+cd ..
+mv wygiwyam wygiwyam.old
+svn checkout http://svn.cmsmadesimple.org/svn/wygiwyam/trunk wygiwyam

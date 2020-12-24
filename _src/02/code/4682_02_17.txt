@@ -1,0 +1,6 @@
+<div class="person">
+	<img src="uploads/images/personnel/{$page_alias}.jpg" alt="{title}" /><br />
+	<strong>{title}, {$content_obj->GetPropertyValue('extra1')}</strong><br />
+	Phone: {$content_obj->GetPropertyValue('extra2')}<br />
+	Email: {$content_obj->GetPropertyValue('extra3')}
+</div>

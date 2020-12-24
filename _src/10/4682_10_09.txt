@@ -1,0 +1,11 @@
+Ranking,"Author First Name","Author Last Name","Primary Genre","Books Published","Total Sales"
+1,Michael,Brown,Mystery,5,9851468
+2,James,Williams,Western,10,9593013
+3,James,Miller,Horror,9,9337703
+4,Elizabeth,Williams,Romance,5,8728139
+5,Mary,Murakami,Romance,7,8476173
+6,Elizabeth,Jones,Horror,3,8420664
+7,Mary,Anderson,Romance,8,8356969
+8,Robert,Smith,Detective,9,7753422
+9,William,Moore,Western,9,7499956
+10,Michael,Brown,Action-adventure,7,6954796

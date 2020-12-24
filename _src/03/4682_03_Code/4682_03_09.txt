@@ -1,0 +1,26 @@
+$symbols = array('aapl','goog','ibm','gknt','msft','orcl');
+$columns = array('Symbol','Last Trade','Last Trade Date',
+	'Last Trade Time','Change','Open','High','Low','Volume');
+
+$stock = file('http://download.finance.yahoo.com/d/quotes.csv?f=sl1d1t1c1ohgv&s='.
+	implode('+',$symbols));
+
+
+echo '<table class="stocktable"><tr>';
+foreach ($columns as $thisCol)
+	{
+	echo '<th>'.$thisCol.'</th>';
+	}
+echo '</tr>';
+
+foreach ($stock as $thisStock)
+	{
+	$details = explode(',',$thisStock);
+	echo '<tr>';
+	foreach ($details as $thisDetail)
+		{
+		echo '<td>'.str_replace('"','',$thisDetail).'</td>';
+		}
+	echo '</tr>';
+	}
+echo '</table>';

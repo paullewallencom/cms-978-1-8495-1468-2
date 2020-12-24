@@ -1,0 +1,9 @@
+<?php
+if (!isset($gCms)) exit;
+
+$message = 'FYI: CMS admin user "'.$params['user']->firstname.
+	' '.$params['user']->lastname.'" ('.$params['user']->username.
+	') has been terminated.';
+
+$this->NotifyAllAdmins($message,'CMS Admin Deleted',$params['user']->id);
+?>

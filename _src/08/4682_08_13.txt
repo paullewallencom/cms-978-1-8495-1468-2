@@ -1,0 +1,1 @@
+$lang['post_install'] = 'Color Picker Module has been installed. You can now use the color picker by clicking on the "Color" button when you edit pages.';

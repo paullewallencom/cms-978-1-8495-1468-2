@@ -1,0 +1,11 @@
+<?php
+if (!isset($gCms)) exit;
+
+$dict = NewDataDictionary($db);
+
+$sqlarray = $dict->DropTableSQL( cms_db_prefix().'module_enemies');
+$dict->ExecuteSQLArray($sqlarray);
+
+$db->DropSequence( cms_db_prefix().'module_enemies_seq');
+
+?>

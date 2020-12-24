@@ -1,0 +1,17 @@
+<?php
+if (!isset($gCms)) exit;
+
+$taboptarray = array('mysql' => 'TYPE=MyISAM');
+$dict = NewDataDictionary($db);
+
+$fields = "
+	track_id I KEY,
+	name C(255) NOTNULL,
+	play_count I DEFAULT 0,
+	average_rating N,
+	description X";
+
+$sqlarray = $dict->CreateTableSQL(cms_db_prefix().'module_music_collection',
+	$fields, $taboptarray);
+$dict->ExecuteSQLArray($sqlarray);
+?>

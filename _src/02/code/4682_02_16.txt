@@ -1,0 +1,5 @@
+<?php
+$lang['admin']['extra1'] = 'Title';
+$lang['admin']['extra2'] = 'Phone Number';
+$lang['admin']['extra3'] = 'Email Address';
+?>

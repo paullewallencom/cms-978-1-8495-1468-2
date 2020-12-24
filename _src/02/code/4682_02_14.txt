@@ -1,0 +1,7 @@
+{if $smarty.now|date_format:"%m%d" == '0101'}
+	<img src="logo_newyears.jpg" />
+{elseif $smarty.now|date_format:"%m%d" == '0314'}
+	<img src="logo_einstein_birthday.jpg" />
+{else}
+	<img src="logo.jpg" />
+{/if}

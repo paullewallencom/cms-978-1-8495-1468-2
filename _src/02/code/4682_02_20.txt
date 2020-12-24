@@ -1,0 +1,3 @@
+RewriteCond %{REQUEST_FILENAME} !-f [NC]
+RewriteCond %{REQUEST_FILENAME} !-d [NC]
+RewriteRule ^sitemap.xml$ index.php?page=sitemap&showtemplate=false [L]

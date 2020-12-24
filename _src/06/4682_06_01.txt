@@ -1,0 +1,48 @@
+<?php
+if (!isset($gCms)) exit;
+
+$message = '';
+
+if (isset($params['submit']))
+	{
+	// process the form
+	$db->Execute('insert into '.cms_db_prefix().
+		'module_ufotracker (name,shape,had_lights,description) values (?,?,?,?)',
+		array($params['reporter_name'],$params['type'],isset($params['lights'])?'1':'0',$params['description']));
+	$message = $this->Lang('sighting_saved');
+	}
+
+$smarty->assign('form_start',
+	$this->CreateFieldsetStart($id, 'fieldset', $this->Lang('title')).
+	$this->CreateFormStart($id, 'default', $returnid));
+
+$smarty->assign('input_name',
+	$this->CreateInputTextWithLabel($id, 'reporter_name', isset($params['reporter_name'])?$params['reporter_name']:'',
+	40, 80, '', $this->Lang('name')));
+
+$ufo_types = array($this->Lang('cigar')=>'cigar',
+	$this->Lang('saucer')=>'saucer',
+	$this->Lang('sphere')=>'sphere');
+$smarty->assign('input_type',
+	$this->CreateInputRadioGroup($id, 'type', $ufo_types, isset($params['type'])?$params['type']:''));
+
+$smarty->assign('input_lights',
+	$this->CreateInputCheckbox($id, 'lights', 'lights', isset($params['lights'])?$params['lights']:''));
+$smarty->assign('label_lights',
+	$this->CreateLabelForInput($id, 'lights', $this->Lang('lights')));
+$smarty->assign('title_description',
+	$this->Lang('title_description'));
+$smarty->assign('input_description',
+	$this->CreateTextArea(false, $id, isset($params['description'])?$params['description']:'', 'description'));
+
+
+$smarty->assign('submit',
+	$this->CreateInputSubmit($id, 'submit', $this->Lang('submit')));
+$smarty->assign('form_end',
+	$this->CreateFormEnd().
+	$this->CreateFieldsetEnd());
+	
+$smarty->assign('message',$message);
+
+echo $this->ProcessTemplate('report_form.tpl');
+?>

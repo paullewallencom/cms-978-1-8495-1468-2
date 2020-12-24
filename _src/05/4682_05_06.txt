@@ -1,0 +1,22 @@
+<?php
+if (!isset($gCms)) exit;
+
+$db=$gCms->GetDb();
+
+$personnel=array();
+$results = $db->Execute('select u.first_name, u.last_name, g.group_name from '.
+	cms_db_prefix().'users u, '.cms_db_prefix().'groups g, '.cms_db_prefix().
+	'user_groups ug where u.user_id=ug.user_id and g.group_id=ug.group_id;');
+	
+while ($results && $row=$results->FetchRow())
+	{
+	array_push($personnel, $row);
+	}
+
+$smarty->assign('personnel',$personnel);
+
+$count = $db->GetOne('select count(*) from '.cms_db_prefix().'users');
+$smarty->assign('usercount',$count);
+
+echo $this->ProcessTemplate('list.tpl');
+?>

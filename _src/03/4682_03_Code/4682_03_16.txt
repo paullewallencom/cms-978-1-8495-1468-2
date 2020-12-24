@@ -1,0 +1,16 @@
+<?php
+function smarty_cms_postfilter_registeredtrademarker($tpl_output, &$smarty)
+{
+	$result = explode(':', $smarty->_current_file);
+
+	if (count($result) > 0)
+	{
+		if ($result[0] == 'content')
+		{
+		$tpl_output = str_replace('CMS Made Simple',
+			'CMS Made Simple®', $tpl_output);
+		}
+	}
+	return $tpl_output;
+}
+?>

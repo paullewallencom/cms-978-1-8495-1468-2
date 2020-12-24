@@ -1,0 +1,17 @@
+mysql> describe cms_module_enemies;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| enemy_id     | int(11)      | NO   | PRI |         |       | 
+| name         | varchar(255) | YES  |     | NULL    |       | 
+| planned_fate | text         | YES  |     | NULL    |       | 
++--------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> describe cms_module_enemies_seq;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| id    | int(11) | NO   |     |         |       | 
++-------+---------+------+-----+---------+-------+
+1 row in set (0.00 sec)

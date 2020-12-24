@@ -1,0 +1,14 @@
+	function HasAdmin()
+		{
+		return true;
+		}
+
+	function GetAdminSection()
+		{
+		return 'content';
+		}
+	
+	function VisibleToAdminUser()
+		{
+		return $this->CheckPermission('Superuser Access');
+		}

@@ -1,0 +1,1 @@
+svn commit -m "Updated database handling, added CSS class to error messages."

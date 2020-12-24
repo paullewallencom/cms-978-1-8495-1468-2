@@ -1,0 +1,27 @@
+<?php
+function smarty_cms_modifier_reverse($string, $invert_case=false)
+	{
+	if ($invert_case)
+		{
+		$retstr = '';
+		$chars = str_split($string);
+		foreach ($chars as $char)
+			{
+			if (strtolower($char) != $char)
+				{
+				$retstr .= strtolower($char);
+				}
+			else
+				{
+				$retstr .= strtoupper($char);
+				}
+			}
+		}
+	else
+		{
+		$retstr = $string;
+		}
+
+	return strrev($retstr);
+	}
+?>

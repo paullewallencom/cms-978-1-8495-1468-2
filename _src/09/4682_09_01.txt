@@ -1,0 +1,1 @@
+audit(-1,'Search','User searched for '.$params[0].' and got '.count($params[1]).' results');

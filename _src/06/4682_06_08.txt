@@ -1,0 +1,7 @@
+[04-Nov-2010 22:15:54] Array
+(
+    [name] => Example 2
+    [parent] => 1
+    [submit] => Submit
+    [action] => addcategory
+)

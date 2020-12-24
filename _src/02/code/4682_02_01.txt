@@ -1,0 +1,19 @@
+[[assign var='dark_color' value='#2634cf']]
+[[assign var='main_color' value='#4a76ef']]
+[[assign var='background_color' value='#e0e4ef']]
+[[assign var='highlight_color' value='#5fb7ff']]
+
+body
+   {
+   color: [[$main_color]];
+   background: [[$background_color]];
+   }
+
+h1, h2, h3 { color: [[$dark_color]]; }
+a { color: [[$main_color]]; }
+
+.currentpage
+   {
+   background: [[$dark_color]];
+   color: [[$highlight_color]];
+   }

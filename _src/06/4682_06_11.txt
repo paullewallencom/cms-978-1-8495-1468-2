@@ -1,0 +1,2 @@
+$smarty->assign('form_start',
+	$this->CreateFormStart($id, 'default', $returnid,'post','',true));

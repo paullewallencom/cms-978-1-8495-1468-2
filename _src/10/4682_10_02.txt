@@ -1,0 +1,28 @@
+<?php
+if (!isset($gCms)) exit;
+
+$db = $gCms->GetDb();
+
+$taboptarray = array('mysql' => 'TYPE=MyISAM');
+$dict = NewDataDictionary($db);
+
+$fields = "
+	word_id I KEY AUTOINCREMENT,
+	word C(255),
+	definition X";
+
+$sqlarray = $dict->CreateTableSQL(cms_db_prefix()."module_dictionary",
+	$fields, $taboptarray);
+$dict->ExecuteSQLArray($sqlarray);
+
+$insert_sql = 'insert into '.cms_db_prefix().
+	'module_dictionary (word,definition) values (?,?)';
+
+$res = $db->Execute($insert_sql,array('aciniform','Having the form of a cluster of grapes; clustered like grapes'));
+$res = $db->Execute($insert_sql,array('biloquist','Person with the power of speaking in two distinct voices'));
+$res = $db->Execute($insert_sql,array('cledonism','Using convoluted language to avoid unlucky words'));
+$res = $db->Execute($insert_sql,array('deasil','Clockwise, or a clockwise motion'));
+$res = $db->Execute($insert_sql,array('ebrious','Intoxicated, or inclined to consume alcohol to excess'));
+$res = $db->Execute($insert_sql,array('fulminate','Thunder, explode. Rant loudly or speak with great power'));
+$res = $db->Execute($insert_sql,array('galimatias','Nonsense or gibberish'));
+?>

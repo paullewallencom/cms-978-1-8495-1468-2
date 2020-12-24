@@ -1,0 +1,15 @@
+[24-Dec-2010 01:23:14] Array
+(
+    [user] => User Object
+        (
+            [id] => 1
+            [username] => admin
+            [password] => 7a495904a8c0b3e6aabe27440b436c28
+            [firstname] => Samuel
+            [lastname] => Goldstein
+            [email] => sjg@cmsmodules.com
+            [active] => 1
+            [adminaccess] => 1
+        )
+
+)

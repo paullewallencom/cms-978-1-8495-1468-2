@@ -1,0 +1,5 @@
+<h2>{$hike.name}</h2>
+<div>Hike: {$hike.name}</div>
+<div>Difficulty rating (1-10): {$hike.difficulty}</div>
+<div>View rating (1-10): {$hike.view}</div>
+<div>Description: {$hike.description}</div>

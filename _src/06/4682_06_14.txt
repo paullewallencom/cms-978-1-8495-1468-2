@@ -1,0 +1,4 @@
+{$form_start}
+	<p>{$input_flavor}</p>
+	<p>{$submit}</p>
+{$form_end}

@@ -1,0 +1,2 @@
+{capture assign="my_content"}{content}{/capture}
+<div class="{if $my_content|word_count < 10}narrow{else}wide{/if}">{$my_content}</div>

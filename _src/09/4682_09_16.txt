@@ -1,0 +1,26 @@
+function GetDependencies()
+	{
+	return array('CMSMailer'=>'1.73');
+	}
+	
+function NotifyAllAdmins($message='',$subject='CMS Admin Notice',$exclude_user_id)
+	{
+	$db = $this->GetDb();
+	$result = $db->Execute('select * from '.cms_db_prefix().'users where active=1 and user_id <>?',
+		array($exclude_user_id));
+	if ($result)
+		{
+		$mail = $this->GetModuleInstance('CMSMailer');
+		if ($mail != FALSE)
+			{
+			$mail->reset();
+			$mail->SetSubject($subject);
+			$mail->SetBody($message);
+			}
+		while ($row = $result->FetchRow())
+			{
+			$mail->AddAddress($row['email'],$row['first_name'].' '.$row['last_name']);	
+			}
+		$sent = $mail->Send();
+		}			
+	}

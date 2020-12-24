@@ -1,0 +1,19 @@
+function GetEventDescription($eventname)
+	{
+	if ($eventname == 'OnVoteFormDisplayed')
+		return 'Called when a Voter Form is displayed.';
+	else if ($eventname == 'OnVoteFormSubmitted')
+		return 'Called after a Voter Form is submitted.';
+	}
+
+function GetEventHelp($eventname)
+	{
+	$help = $this->GetEventDescription($eventname) . '<br>Parameters: <ul>';
+	if ($eventname == 'OnVoteFormDisplayed')
+		$help .= '<li>ip -  the IP address of the person viewing the form</li>';
+	else if ($eventname == 'OnVoteFormSubmitted')
+		$help .= '<li>ip -  the IP address of the person voting</li>' .
+			'<li>vote -  the vote that was submitted</li>';
+	$help .= '</ul>';
+	return $help;
+	}

@@ -1,0 +1,23 @@
+<?php
+if (!isset($gCms)) exit;
+
+$db= $this->GetDb();
+$hikes = array();
+$res = $db->Execute('select * from '.cms_db_prefix().
+	'module_hikes_hike where category_id=?',
+	array($params['category_id']));
+while ($res && $row=$res->FetchRow())
+	{
+	$prettyurl = 'hike/hike/'.$returnid.'/'.$row['hike_id'];
+	$row['link'] = $this->CreateLink($id, 'hike', $returnid, $row['name'],
+		array('hike_id'=>$row['hike_id']), '', false, false, '', false,
+		$prettyurl);
+	array_push($hikes,$row);
+	}
+$cat = $db->GetOne('select name from '.cms_db_prefix().
+		'module_hikes_category where category_id=?',
+		array($params['category_id']));
+$smarty->assign('hikes',$hikes);
+$smarty->assign('category',$cat);
+echo $this->ProcessTemplate('display_hikes.tpl');
+?>

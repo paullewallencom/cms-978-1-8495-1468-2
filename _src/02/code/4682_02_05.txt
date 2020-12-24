@@ -1,0 +1,25 @@
+#wrapper {
+   border: 1px solid black;
+   width: 300px;
+  min-height: 80px;
+  }
+
+#middle_portion{
+   float: left;
+   width: 10px;
+   min-height:80px;
+   }
+
+#left_portion {
+  float: left;
+  width: 58px;
+  background: #ffbfc9;
+  min-height: 80px;
+  }
+
+#right_portion {
+  float: right;
+  width: 232px;
+  background: #bfc4ff;
+	min-height: 80px;
+}

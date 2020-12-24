@@ -1,0 +1,19 @@
+<?php
+if (!isset($gCms)) exit;
+
+$db = $gCms->GetDb();
+
+$dict = NewDataDictionary( $db );
+
+$flds = "
+     item_id I KEY,
+	 title C(80),
+	 description X,
+	 inventory I";
+			
+$sqlarray = $dict->CreateTableSQL( cms_db_prefix()."module_shopmanager",
+				   $flds, 
+				   $taboptarray);
+$dict->ExecuteSQLArray($sqlarray);
+
+?>

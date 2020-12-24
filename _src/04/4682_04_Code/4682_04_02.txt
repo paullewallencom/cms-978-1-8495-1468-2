@@ -1,0 +1,41 @@
+<?php
+class SmartyDemo extends CMSModule
+	{
+	function GetName()
+		{
+		return 'SmartyDemo';
+		}
+		
+	function HasAdmin()
+		{
+		return true;
+		}
+
+	function GetVersion()
+		{
+		return '0.1';
+		}
+
+	function Install()
+		{
+		$this->SetTemplate('title_template','<h1>{$title}</h1>');
+		}
+
+	function DoAction($action, $id, $params, $returnid)
+		{
+		$this->smarty->assign('title','The Rubaiyat');
+		echo $this->ProcessTemplateFromDatabase('title_template');
+		
+		$subtitle_template = '<h2>{$subtitle}</h2>';
+		$this->smarty->assign('subtitle','by Omar Khayyam');
+		echo $this->ProcessTemplateFromData($subtitle_template);
+		
+		$text = array("Wake! For the Sun, who scatter'd into flight",
+			"The Stars before him from the Field of Night,",
+			"Drives Night along with them from Heav'n, and strikes",
+			"The Sultan's Turret with a Shaft of Light.");
+		$this->smarty->assign('text',$text);
+		echo $this->ProcessTemplate('text_template.tpl');
+		}
+	}
+?>

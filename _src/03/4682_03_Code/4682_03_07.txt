@@ -1,0 +1,25 @@
+$gCms = cmsms();
+$db = $gCms->GetDb();
+$content_name='';
+
+if (isset($_GET['alias']) && !empty($_GET['alias']))
+	{
+	$res = $db->Execute('select content_name from '.cms_db_prefix().
+		'content where content_alias=?',array($_GET['alias']));
+	if ($res && $res->RecordCount() > 0)
+		{
+		$row = $res->FetchRow();
+		$content_name = 'Alias '.htmlspecialchars($_GET['alias']).
+			' maps to "'.$row['content_name'].'"';
+		}
+	else
+		{
+		$content_name = 'Alias '.htmlspecialchars($_GET['alias']).
+			' is not in the database.';
+		}
+	}
+	
+if (!empty($content_name))
+	{
+	echo $content_name;
+	}

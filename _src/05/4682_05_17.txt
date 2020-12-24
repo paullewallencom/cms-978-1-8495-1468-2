@@ -1,0 +1,19 @@
+<?php
+if (!isset($gCms)) exit;
+
+$dict = NewDataDictionary( $db );
+
+switch($oldversion)
+{
+ case "0.1":
+	$sqlarray = $dict->AddColumnSQL(cms_db_prefix()."module_monster", "weakness C(80)");
+	$dict->ExecuteSQLArray($sqlarray);
+	$update_sql = 'update '.cms_db_prefix().
+		'module_monster set weakness=? where name=?';
+
+	$res = $db->Execute($update_sql,array('Fire','Ghoul'));
+	$res = $db->Execute($update_sql,array('Magic Missile','Will o\' the Wisp'));
+	$res = $db->Execute($update_sql,array('Fiddle-playing Contests','Devil'));
+	$res = $db->Execute($update_sql,array('Battle with Gamera','Guiron'));
+}
+?>

@@ -1,0 +1,20 @@
+<?php
+if (!isset($gCms)) exit;
+
+$contentops = $gCms->GetContentOperations();
+$content_obj = $contentops->getContentObject();
+$safename = str_replace('"','',$content_obj->Name());
+$keywords = str_replace(' ',',',$safename);
+
+if (stripos($params['content'],'<meta name="keywords"') === FALSE)
+	{
+	$metatag = '<meta name="keywords" content="'.$keywords.'" />';
+	$params['content'] = substr($params['content'],0,stripos($params['content'],'</title>')+8) .
+		"\n" . $metatag . substr($params['content'],stripos($params['content'],'</title>')+8);
+	}
+else
+	{
+	$params['content'] = preg_replace('/(<meta\sname=\"keywords\"\scontent=\")([^"]+)/i',
+		"$1$2,$keywords",$params['content']);
+	}
+?>

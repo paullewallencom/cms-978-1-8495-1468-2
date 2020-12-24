@@ -1,0 +1,15 @@
+<?php
+if (!isset($gCms)) exit;
+
+if (isset($params['word_id']))
+	{
+	$db = $this->GetDb();
+	$dbresult = $db->Execute('select * from '.cms_db_prefix().
+		'module_dictionary where word_id=?', array($params['word_id']));
+	if ($dbresult && $row=$dbresult->FetchRow())
+		{
+		echo '<dl><dt>'.$row['word'].'</dt>';
+		echo '<dd>'.$row['definition'].'</dd></dl>';
+	    }
+	}
+?>

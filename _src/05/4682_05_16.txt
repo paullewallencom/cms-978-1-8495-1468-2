@@ -1,0 +1,25 @@
+<?php
+if (!isset($gCms)) exit;
+
+$taboptarray = array('mysql' => 'TYPE=MyISAM');
+$dict = NewDataDictionary($db);
+
+$fields = "
+	monster_id I KEY AUTOINCREMENT,
+	name C(255),
+	habitat C(80),
+	weakness C(80)";
+
+$sqlarray = $dict->CreateTableSQL(cms_db_prefix().'module_monster',
+	$fields, $taboptarray);
+$dict->ExecuteSQLArray($sqlarray);
+
+$insert_sql = 'insert into '.cms_db_prefix().
+	'module_monster (name,habitat,weakness) values (?,?,?)';
+
+$res = $db->Execute($insert_sql,array('Ghoul','Graveyard','Fire'));
+$res = $db->Execute($insert_sql,array('Will o\' the Wisp','Swamps and Marshes','Magic Missile'));
+$res = $db->Execute($insert_sql,array('Devil','The Crossroads at Midnight','Fiddle-playing Contests'));
+$res = $db->Execute($insert_sql,array('Guiron','Planet Terra','Battle with Gamera'));
+
+?>

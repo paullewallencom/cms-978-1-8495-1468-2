@@ -1,0 +1,23 @@
+<?php
+
+class HelloWorld extends CMSModule
+	{
+	
+	function GetName()
+		{
+		return 'HelloWorld';
+		}
+		
+	function IsPluginModule()
+		{
+		return true;
+		}
+		
+	function DoAction($action, $id, $params, $returnid=-1)
+		{
+		echo 'Hello World. Welcome to the '.$this->GetName().' module (version '.$this->GetVersion();
+		echo ') running in CMS Made Simple version '.CMS_VERSION;
+		}
+	}
+	
+?>

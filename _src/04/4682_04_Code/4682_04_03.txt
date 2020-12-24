@@ -1,0 +1,38 @@
+<?php
+class MailDemo extends CMSModule
+	{
+	function GetName()
+		{
+		return 'MailDemo';
+		}
+		
+	function HasAdmin()
+		{
+		return true;
+		}
+
+	function GetVersion()
+		{
+		return '0.1';
+		}
+
+	function GetDependencies()
+		{
+		return array('CMSMailer'=>'1.73');
+		}
+
+	function DoAction($action, $id, $params, $returnid)
+		{
+		$mail = $this->GetModuleInstance('CMSMailer');
+		if ($mail !== FALSE)
+			{
+			$mail->reset();
+			$mail->SetSubject('Spammers');
+			$mail->SetBody("To whom it may concern;\nIf you are seeking the spammers who stopped by ".
+			 	"last week, they have been fed to the cat.\nSincerely,\n_SjG_");
+			$mail->AddAddress('you@yourdomain.com','Your Name');
+			$res = $mail->Send();
+			}
+		}
+	}
+?>

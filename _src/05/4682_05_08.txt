@@ -1,0 +1,47 @@
+<?php
+if (!isset($gCms)) exit;
+
+$taboptarray = array('mysql' => 'TYPE=MyISAM');
+$dict = NewDataDictionary($db);
+
+$fields = "
+	planet_id I KEY,
+	name C(255)";
+
+$sqlarray = $dict->CreateTableSQL(cms_db_prefix().'module_planets',
+	$fields, $taboptarray);
+$dict->ExecuteSQLArray($sqlarray);
+
+$db->CreateSequence(cms_db_prefix().'module_planet_seq');
+
+$insert_sql = 'insert into '.cms_db_prefix().
+	'module_planets (planet_id,name) values (?,?)';
+
+$planet_id = $db->GenID(cms_db_prefix(). 'module_planet_seq');	
+$res = $db->Execute($insert_sql,array($planet_id,'Mercury'));
+
+$planet_id = $db->GenID(cms_db_prefix(). 'module_planet_seq');	
+$res = $db->Execute($insert_sql,array($planet_id,'Venus'));
+
+$planet_id = $db->GenID(cms_db_prefix(). 'module_planet_seq');	
+$res = $db->Execute($insert_sql,array($planet_id,'Earth'));
+
+$planet_id = $db->GenID(cms_db_prefix(). 'module_planet_seq');	
+$res = $db->Execute($insert_sql,array($planet_id,'Mars'));
+
+$planet_id = $db->GenID(cms_db_prefix(). 'module_planet_seq');	
+$res = $db->Execute($insert_sql,array($planet_id,'Jupiter'));
+
+$planet_id = $db->GenID(cms_db_prefix(). 'module_planet_seq');	
+$res = $db->Execute($insert_sql,array($planet_id,'Saturn'));
+
+$planet_id = $db->GenID(cms_db_prefix(). 'module_planet_seq');	
+$res = $db->Execute($insert_sql,array($planet_id,'Uranus'));
+
+$planet_id = $db->GenID(cms_db_prefix(). 'module_planet_seq');	
+$res = $db->Execute($insert_sql,array($planet_id,'Neptune'));
+
+$planet_id = $db->GenID(cms_db_prefix(). 'module_planet_seq');	
+$res = $db->Execute($insert_sql,array($planet_id,'Pluto?'));
+
+?>

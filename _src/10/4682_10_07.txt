@@ -1,0 +1,22 @@
+<?php
+if (!isset($gCms)) exit;
+
+$data = $this->CreateData(); 
+
+@ob_clean();
+@ob_clean();
+header('Pragma: public');
+header('Expires: 0');
+header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+header('Cache-Control: private',false);
+header('Content-Description: File Transfer');
+header('Content-Type: text/csv; charset=iso-8859-1');
+header('Content-Disposition: attachment; filename=export.csv');
+$f=fopen('php://output','w');
+foreach ($data as $oneRow)
+	{
+    fputcsv($f, $oneRow);
+	}
+fclose($f);
+exit;
+?>

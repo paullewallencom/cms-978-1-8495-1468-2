@@ -1,0 +1,30 @@
+<?php
+if (!isset($gCms)) exit;
+
+$tab = '';
+if (!empty($params['active_tab']))
+	{
+	$tab = $params['active_tab'];
+	}
+
+$tabs = $this->StartTabHeaders(). $this->SetTabHeader('ideas','Perfectly Innocent Ideas', ('ideas' == $tab));
+$smarty->assign('start_ideas_tab',$this->StartTab('ideas', $params));
+
+if ($this->CheckPermission('MadScience'))
+	{
+	$tabs .= $this->SetTabHeader('devices','World Domination',($tab=='devices'));
+	$smarty->assign('start_devices_tab',$this->StartTab('devices', $params));
+	$devices = array('Planetary Death-Ray','Heat-seeking Ferrets','Lizards with Lasers');
+	$smarty->assign('devices','<ul><li>'.implode('</li><li>',$devices).'</li></ul>');
+	}
+else
+	{
+	$smarty->assign('start_devices_tab','');
+	}
+$tabs .= $this->EndTabHeaders(). $this->StartTabContent();
+$smarty->assign('tab_headers',$tabs);
+$smarty->assign('tab_end',$this->EndTab());
+$smarty->assign('tab_footer',$this->EndTabContent());
+
+echo $this->ProcessTemplate('admin_panel.tpl');
+?>

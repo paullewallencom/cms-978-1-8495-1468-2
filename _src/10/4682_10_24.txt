@@ -1,0 +1,20 @@
+function SetParameters()
+	{
+	$this->RegisterModulePlugin();
+	$gCms = cmsms();
+	$contentops = $gCms->GetContentOperations();
+	$returnid = $contentops->GetDefaultContent();
+
+	$parms = array('action'=>'default','returnid'=>$returnid);
+	$parms['pie_id'] = 1;
+	$route = new CmsRoute('apple/pie/is/the/best',$this->GetName(),$parms,TRUE);
+	cms_route_manager::register($route);
+	$db = $this->GetDb();
+	$res = $db->Execute('select pie_id, name from '.cms_db_prefix().'module_pies');
+	while ($res && $row=$res->FetchRow())
+		{
+		$parms['pie_id'] = $row['pie_id'];
+		$route = new CmsRoute('pie/'.strtolower($row['name']),$this->GetName(),$parms,TRUE);
+		cms_route_manager::register($route);	
+		}
+	}

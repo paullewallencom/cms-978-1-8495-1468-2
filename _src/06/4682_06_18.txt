@@ -1,0 +1,4 @@
+$smarty->assign('input_milk',
+	$this->CreateInputHidden($id,'milk','avoids').
+	$this->CreateInputCheckbox($id, 'milk', 'contains', $this->GetPreference('tea')).
+	$this->CreateLabelForInput($id, 'milk', 'Tea requires milk'));

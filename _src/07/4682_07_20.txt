@@ -1,0 +1,10 @@
+samuelg$ git pull origin master
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From git@git.cmsmadesimple.org:ajaxmaps
+ * branch            master     -> FETCH_HEAD
+Auto-merged action.generate_coords.php
+CONFLICT (content): Merge conflict in action.generate_coords.php
+Automatic merge failed; fix conflicts and then commit the result.

@@ -1,0 +1,5 @@
+body {font-weight: bold;}
+/*
+Stylesheet: embolden
+Copyright (C) 2011 by cmsmodulefactory.com
+*/

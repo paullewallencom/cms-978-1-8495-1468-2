@@ -1,0 +1,6 @@
+<h2>Hike Categories</h2>
+<ul>
+{foreach from=$cats item=category}
+	<li>{$category.link}</li>
+{/foreach}
+</ul>

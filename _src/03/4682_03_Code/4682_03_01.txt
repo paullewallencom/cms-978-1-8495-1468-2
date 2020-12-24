@@ -1,0 +1,1 @@
+echo 'Welcome user from '.$_SERVER[ 'REMOTE_ADDR'].' -- enjoy your visit!';

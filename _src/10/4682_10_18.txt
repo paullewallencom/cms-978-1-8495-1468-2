@@ -1,0 +1,17 @@
+<?php
+if (!isset($gCms)) exit;
+
+$db= $this->GetDb();
+$cats = array();
+$res = $db->Execute('select * from '.cms_db_prefix().'module_hikes_category');
+while ($res && $row=$res->FetchRow())
+	{
+	$prettyurl = 'hike/cat/'.$returnid.'/'.$row['category_id'];
+	$row['link'] = $this->CreateLink($id, 'category', $returnid, $row['name'],
+		array('category_id'=>$row['category_id']), '', false, false, '', false,
+		$prettyurl);
+	array_push($cats,$row);
+	}
+$smarty->assign('cats',$cats);
+echo $this->ProcessTemplate('display_cats.tpl');
+?>

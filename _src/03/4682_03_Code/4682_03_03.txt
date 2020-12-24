@@ -1,0 +1,9 @@
+$gCms=cmsms();
+
+$smarty = $gCms->GetSmarty();
+
+$smarty->assign('quotation','A computer lets you make more mistakes faster than any invention in human history, with the possible exceptions of handguns and tequila. -- Mitch Ratcliffe');
+
+$items = array('Brandt','Bunny','Donny','Dude','Jeffrey','Maude','Smokey','Walter');
+
+$smarty->assign_by_ref('characters',$items);

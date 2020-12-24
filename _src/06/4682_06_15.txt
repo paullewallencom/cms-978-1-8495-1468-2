@@ -1,0 +1,3 @@
+<p>Pick your favorite:</p>
+
+{cms_module module='Flavor' target='79'}

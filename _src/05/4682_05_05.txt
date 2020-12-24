@@ -1,0 +1,24 @@
+<?php
+class Personnel extends CMSModule
+	{
+	function GetName()
+		{
+		return 'Personnel';
+		}
+
+	function GetVersion()
+		{
+		return '0.1';
+		}
+		
+	function IsPluginModule()
+		{
+		return true;
+		}
+		
+	function SetParameters()
+		{
+		$this->RegisterModulePlugin();
+		}
+	}
+?>

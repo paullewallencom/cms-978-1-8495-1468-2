@@ -1,0 +1,14 @@
+$gCms = cmsms();
+$news_module = $gCms->GetModuleInstance('News');
+
+$new_group = $params['group']->name;
+$summary = 'The Admin has added the new group "'.$new_group.'!"';
+$article = 'The Admin has added the new group "'.$new_group.'."'.
+	' This new group has no members yet, but will doubtless end up '.
+	'being a credit to the community.';
+
+if ($news_module != null)
+	{
+	$res = $news_module->AddNewArticle( 'General',
+		'Group Added', $summary, $article);
+	}

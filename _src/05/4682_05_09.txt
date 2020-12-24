@@ -1,0 +1,29 @@
+<?php
+if (!isset($gCms)) exit;
+
+$taboptarray = array('mysql' => 'TYPE=MyISAM');
+$dict = NewDataDictionary($db);
+
+$fields = "
+	planet_id I KEY AUTOINCREMENT,
+	name C(255)";
+
+$sqlarray = $dict->CreateTableSQL(cms_db_prefix().'module_planets',
+	$fields, $taboptarray);
+$dict->ExecuteSQLArray($sqlarray);
+
+$insert_sql = 'insert into '.cms_db_prefix().
+	'module_planets (name) values (?)';
+
+$res = $db->Execute($insert_sql,array('Mercury'));
+$res = $db->Execute($insert_sql,array('Venus'));
+$res = $db->Execute($insert_sql,array('Earth'));
+$res = $db->Execute($insert_sql,array('Mars'));
+$res = $db->Execute($insert_sql,array('Jupiter'));
+$res = $db->Execute($insert_sql,array('Saturn'));
+$res = $db->Execute($insert_sql,array('Uranus'));
+$res = $db->Execute($insert_sql,array('Neptune'));
+$res = $db->Execute($insert_sql,array('Pluto?'));
+$last_id = $db->Insert_ID();
+
+?>

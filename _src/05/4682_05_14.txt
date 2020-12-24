@@ -1,0 +1,14 @@
+<?php
+class Monsters extends CMSModule
+	{
+	function GetName()
+		{
+		return 'Monsters';
+		}
+		
+	function GetVersion()
+		{
+		return '0.1';
+		}
+	}
+?>

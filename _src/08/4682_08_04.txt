@@ -1,0 +1,11 @@
+{$tab_headers}
+   {$start_movies_tab}
+      This shows up in the Movies Tab
+   {$tab_end}
+   {$start_categories_tab}
+		This shows up in the Categories Tab
+   {$tab_end}
+   {$start_settings_tab}
+		This shows up in the Settings Tab
+   {$tab_end}
+{$tab_footer}

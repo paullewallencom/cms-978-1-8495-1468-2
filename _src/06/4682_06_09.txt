@@ -1,0 +1,37 @@
+<?php
+if (!isset($gCms)) exit;
+
+$playwrights = array('Samuel Beckett'=>'beckett',
+	'Eugène Ionesco'=>'ionesco',
+	'Jean Genet'=>'genet',
+	'Tom Stoppard'=>'stoppard');
+
+$message = '';
+
+if (isset($params['submit']))
+	{
+	// process the form
+	if ($params['playwright'] ==  'beckett')
+			echo '"Go on failing. Go on. Only next time, try to fail better."';
+	if ($params['playwright'] ==  'ionesco')
+			echo '"Ideologies separate us. Dreams and anguish bring us together."';
+	if ($params['playwright'] ==  'genet')
+			echo '"Anyone who knows a strange fact shares in its singularity."';
+	if ($params['playwright'] ==  'stoppard')
+			echo '"Life is a gamble, at terrible odds - if it was a bet you wouldn\'t take it. "';
+
+	echo '<br />--'.array_search($params['playwright'],$playwrights);
+	}
+
+$smarty->assign('form_start',$this->CreateFormStart($id, 'default', $returnid));
+
+$smarty->assign('input_playwright',
+	$this->CreateInputRadioGroup($id, 'playwright', $playwrights,
+		isset($params['playwright'])?$params['playwright']:''));
+
+$smarty->assign('submit',
+	$this->CreateInputSubmit($id, 'submit', 'Display a Quotation'));
+$smarty->assign('form_end', $this->CreateFormEnd());
+	
+echo $this->ProcessTemplate('form.tpl');
+?>

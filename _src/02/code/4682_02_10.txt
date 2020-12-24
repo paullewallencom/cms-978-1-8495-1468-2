@@ -1,0 +1,4 @@
+<div class="sbar-top">
+	<h2 class="sbar-title">Welcome!</h2>
+</div>
+<div class="sbar-main">Welcome to {sitename}!</div>

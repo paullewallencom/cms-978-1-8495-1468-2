@@ -1,0 +1,24 @@
+<?php
+if (!isset($gCms)) exit;
+
+$flavors = array('Sour'=>'sour', 'Bitter'=>'bitter',
+	'Sweet'=>'sweet', 'Salty'=>'salty', 'Umami'=>'umami');
+
+if (isset($params['flavor']))
+	{
+	echo 'Yum ... '.array_search($params['flavor'],$flavors);
+	return;
+	}
+
+$smarty->assign('form_start',
+	$this->CreateFormStart($id, 'default', $params['target']));
+
+$smarty->assign('input_flavor',
+	$this->CreateInputRadioGroup($id, 'flavor', $flavors));
+
+$smarty->assign('submit',
+	$this->CreateInputSubmit($id, 'submit', 'Submit'));
+$smarty->assign('form_end', $this->CreateFormEnd());
+	
+echo $this->ProcessTemplate('form.tpl');
+?>

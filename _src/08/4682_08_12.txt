@@ -1,0 +1,4 @@
+function InstallPostMessage()
+	{
+	return $this->Lang('post_install');
+	}

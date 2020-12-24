@@ -1,0 +1,52 @@
+<?php
+if (!isset($gCms)) exit;
+
+$taboptarray = array('mysql' => 'TYPE=MyISAM');
+$dict = NewDataDictionary($db);
+
+$fields = "
+	hike_id I KEY AUTOINCREMENT,
+	category_id I,
+	name C(255),
+	difficulty I,
+	view I,
+	description X";
+
+$sqlarray = $dict->CreateTableSQL(cms_db_prefix().'module_hikes_hike',
+	$fields, $taboptarray);
+$dict->ExecuteSQLArray($sqlarray);
+
+$fields = "
+	category_id I KEY AUTOINCREMENT,
+	name C(255),
+	description X";
+
+$sqlarray = $dict->CreateTableSQL(cms_db_prefix().'module_hikes_category',
+	$fields, $taboptarray);
+$dict->ExecuteSQLArray($sqlarray);
+
+$insert_cat_sql = 'insert into '.cms_db_prefix().
+	'module_hikes_category (category_id,name,description) values (?,?,?)';
+
+$res = $db->Execute($insert_cat_sql,array(1,'Easy Hikes','Nice strolls'));
+$res = $db->Execute($insert_cat_sql,array(2,'Famous Trails','Treks with a reputation'));
+$res = $db->Execute($insert_cat_sql,array(3,'Weekends in Malibu','Trails in Topanga State Park'));
+
+$insert_hike_sql = 'insert into '.cms_db_prefix().
+	'module_hikes_hike (category_id,name,difficulty,view,description) values (?,?,?,?,?)';
+
+$res = $db->Execute($insert_hike_sql,array(1,'Palisades Park',1,9,
+	'A park on the top of the Santa Monica bluffs with a view of the beach and pier'));
+$res = $db->Execute($insert_hike_sql,array(1,'Venice Canals Walk',1,7,
+	'Wander between canals, over bridges, and between million dollar homes'));
+$res = $db->Execute($insert_hike_sql,array(2,'Sam Merrill Trail',9,10,
+	'Walk up to historic Mt. Lowe to the former site of the Echo Mountain hotel'));
+$res = $db->Execute($insert_hike_sql,array(2,'Mount Wilson Toll Road',8,7,
+	'Go from Eaton Canyon to the famous Mt. Wilson Observatory'));
+$res = $db->Execute($insert_hike_sql,array(3,'Temescal Gateway',5,5,
+	'Follow the creek up to the waterfall, or climb up to the ridge'));
+$res = $db->Execute($insert_hike_sql,array(3,'Corral Canyon',3,8,
+	'Strange rock formations and great views are found on both sides of this fire road'));
+$res = $db->Execute($insert_hike_sql,array(3,'Passeo Miramar',6,10,
+	'Climb up to Parker Mesa overlook, and see the whole sweep of the city and Santa Monica bay'));
+?>

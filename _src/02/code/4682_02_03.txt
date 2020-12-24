@@ -1,0 +1,11 @@
+<div id="wrapper">
+	<div id="left_portion">
+		This is the left portion.
+	</div>
+	<div id="middle_portion">
+	.<br/>.<br/>.<br/>.
+	</div>
+	<div id="right_portion">
+		This is the right portion.
+	</div>
+</div>

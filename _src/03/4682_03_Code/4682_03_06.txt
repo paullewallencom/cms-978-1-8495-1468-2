@@ -1,0 +1,8 @@
+{* main top, holds top image and print image *}
+            <div class="main-top">
+              <div class="print core-float-right">
+                {print showbutton=true}
+				<br />
+				{page_counter}
+              </div>
+            </div>

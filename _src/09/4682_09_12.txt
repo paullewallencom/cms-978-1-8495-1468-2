@@ -1,0 +1,12 @@
+function DoEvent($originator, $eventname, &$params)
+	{
+	if ($originator == 'Core' && $eventname == 'AddStylesheetPre')
+		{
+		if (stripos($params['stylesheet']->value,'copyright') === false)
+			{
+			$params['stylesheet']->value .= "\n/*\n".
+				"Stylesheet: ".$params['stylesheet']->name."\n".
+				"Copyright (C) ".date('Y')." by cmsmodulefactory.com\n*/";
+			}
+		}
+	}

@@ -1,0 +1,24 @@
+<?php
+if (!isset($gCms)) exit;
+
+if (isset($params['submit']))
+	{
+	if (isset($params['milk']))
+		{
+		$this->SetPreference('tea',$params['milk']);
+		}	
+	echo 'A proper cup of tea '.$this->GetPreference('tea','avoids').' milk.';
+	}
+$smarty->assign('form_start',
+	$this->CreateFormStart($id, 'default', $returnid));
+
+$smarty->assign('input_milk',
+	$this->CreateInputCheckbox($id, 'milk', 'contains', $this->GetPreference('tea')).
+	$this->CreateLabelForInput($id, 'milk', 'Tea requires milk'));
+
+$smarty->assign('submit',
+	$this->CreateInputSubmit($id, 'submit', 'Submit'));
+$smarty->assign('form_end', $this->CreateFormEnd());
+	
+echo $this->ProcessTemplate('form.tpl');
+?>

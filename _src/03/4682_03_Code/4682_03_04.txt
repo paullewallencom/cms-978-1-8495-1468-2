@@ -1,0 +1,6 @@
+<ul>
+{foreach from=$characters item=who}
+	<li>{$who}</li>
+{/foreach} 
+</ul>
+<p>{$quotation}</p>

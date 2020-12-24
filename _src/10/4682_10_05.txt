@@ -1,0 +1,35 @@
+function &CreateData()
+	{
+	$genres = array('Action-adventure','Crime','Detective','Fantasy',
+		'Horror','Mystery','Romance','Science fiction','Western','Inspirational');
+	$fnames = array('Mary','James','Patricia','John','Linda','Robert','Barbara',
+		'Michael','Elizabeth','William');
+	$lnames = array('Smith','Johnson','Williams','Jones','Brown','Davis','Miller',
+		'Wilson','Moore','Taylor','Anderson','Murakami');
+	$out = array();
+	array_push($out,array('Ranking','Author First Name','Author Last Name',
+		'Primary Genre','Books Published','Total Sales'));
+	$sales = 10000000;
+	for ($i=0;$i<10;$i++)
+		{
+		$rec = array();
+		$sales -= rand(10000,999999);
+		$rec[0] = ($i + 1);
+		$rec[1] = $fnames[array_rand($fnames)];
+		$rec[2] = $lnames[array_rand($lnames)];
+		$rec[3] = $genres[array_rand($genres)];
+		$rec[4] = rand(1, 10);
+		$rec[5] = $sales;
+		array_push($out,$rec);
+		}
+	return $out;
+	}
+	
+function SuppressAdminOutput(&$request)
+	{
+	if (strpos($_SERVER['QUERY_STRING'],'export') !== false)
+		{
+		return true;
+		}
+	return false;
+	}

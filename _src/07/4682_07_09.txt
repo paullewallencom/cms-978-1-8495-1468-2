@@ -1,0 +1,9 @@
+	function MinimumCMSVersion()
+	{
+<<<<<<< MINE (select with 'mc') (225)
+		return "1.9.1";
+||||||| ORIGINAL (225)
+		return "1.8";
+=======
+		return "1.9";
+>>>>>>> THEIRS (select with 'tc') (225)

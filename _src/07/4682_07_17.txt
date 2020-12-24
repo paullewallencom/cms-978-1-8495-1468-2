@@ -1,0 +1,14 @@
+samuelg$ git status
+# On branch version1.1
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#
+#	modified:   action.generate_coords.php
+#	modified:   action.display_map.php
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	action.update_map.php
+no changes added to commit (use "git add" and/or "git commit -a")

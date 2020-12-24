@@ -1,0 +1,9 @@
+samuelg$ svn diff -r r77 dbrescue.module.tpl 
+
+Index: dbrescue.module.tpl 
+===================================================================
+--- dbrescue.module.tpl 	(revision 77)
++++ dbrescue.module.tpl 	(working copy)
+
+- $result = preg_replace('/class="([^"]+)"/','class="$1_list"',$result);
++ $result = str_replace('class="admin"','class="admin_list"', $result);

@@ -1,0 +1,27 @@
+function SearchReindex(&$module)
+	{
+	$db = $this->GetDb();
+	$result = $db->Execute('select * from '.
+		cms_db_prefix().'module_dictionary');
+	while ($result && $row=$result->FetchRow())
+		{
+		$module->AddWords($this->GetName(), $row['word_id'], '',
+			$row['word'].' '.$row['definition']); 
+		}
+    }
+
+function SearchResult($returnid, $id, $attr = '')
+	{
+	$result = array();
+	$db = $this->GetDb();
+	$dbresult = $db->Execute('select word from '.cms_db_prefix().
+		'module_dictionary where word_id=?', array($id));
+	if ($dbresult && $row=$dbresult->FetchRow())
+		{
+		$result[0] = 'Dictionary';
+		$result[1] = $row['word'];
+		$result[2] = $this->CreateLink('cntnt01', 'default', $returnid, '',
+			array('word_id' => $id) ,'', true);
+	    }
+	return $result;
+    }

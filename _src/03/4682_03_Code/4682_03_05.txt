@@ -1,0 +1,6 @@
+$gCms=cmsms();
+$db = $gCms->GetDb();
+
+$count = $db->GetOne('select count(*) from '.cms_db_prefix().'content where active=1');
+
+echo 'Total pages: '.$count;

@@ -1,0 +1,5 @@
+<?php
+$lang['news'] = 'Blog';
+$lang['addnewsitem'] = 'Add Blog Posting';
+$lang['description'] = 'Add, edit and remove Blog Postings';
+?>

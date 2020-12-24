@@ -1,0 +1,47 @@
+<?php
+class Armor extends CMSModule
+	{
+	function GetName()
+		{
+		return 'Armor';
+		}
+		
+	function GetVersion()
+		{
+		return '0.1';
+		}
+		
+	function IsPluginModule()
+		{
+		return true;
+		}
+		
+	function GetHelp()
+		{
+		return 'Armor Test';
+		}
+		
+	function SetParameters()
+		{
+		$this->RegisterModulePlugin();
+		$this->RestrictUnknownParams();
+
+		$this->CreateParameter('int_param', -1, 'An Integer');
+		$this->SetParameterType('int_param',CLEAN_INT);
+
+		$this->CreateParameter('string_param', '', 'A String');
+		$this->SetParameterType('string_param',CLEAN_STRING);
+
+		$this->CreateParameter('none_param', '', 'Anything goes!');
+		$this->SetParameterType('none_param',CLEAN_NONE);
+
+		$this->SetParameterType(CLEAN_REGEXP.'/anyfloat.*/',CLEAN_FLOAT);
+		}
+	
+	function DoAction($action, $id, $params, $returnid)
+		{
+		echo '<h1>'.$id.'</h1>';
+		debug_display($params);
+		}
+	}
+?>

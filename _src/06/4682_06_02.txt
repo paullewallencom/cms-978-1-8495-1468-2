@@ -1,0 +1,11 @@
+<?php
+$lang['title']='Sighting Report';
+$lang['cigar']='Cigar-Shaped';
+$lang['saucer']='Saucer-Shaped';
+$lang['sphere']='Spherical';
+$lang['lights']='UFO was accompanied by blinky lights';
+$lang['name']='Your Name';
+$lang['title_description']='Please describe what you saw:';
+$lang['submit']='Register your sighting';
+$lang['sighting_saved']='Your sighting will be analyzed and promptly covered up by the authorities.';
+?>

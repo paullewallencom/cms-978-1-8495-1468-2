@@ -1,0 +1,4 @@
+{$form_start}
+	<p>{$input_milk}</p>
+	<p>{$submit}</p>
+{$form_end}

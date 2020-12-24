@@ -1,0 +1,9 @@
+{* Start left side *}
+          <div id="left" class="core-float-left">
+					{capture assign="special"}{content block="special"}{/capture}
+					{if $special != ''}
+						<div class="sbar-top">
+							<h2 class="sbar-title">Special!</h2>
+            </div>
+            <div class="sbar-main">{$special}</div>
+					{/if}

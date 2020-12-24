@@ -1,0 +1,17 @@
+[[setlist var=boxes value='"red":"#df0000","green":"#00df00","blue":"#0000df"']]
+
+[[foreach from=$boxes key=current_box item=box_color]]
+#[[$current_box]] {
+	background: #fff;
+	color: [[$box_color]];
+	border: 1px solid [[$box_color]];
+	width: 200px;
+}
+
+#[[$current_box]] h1 {
+	background: [[$box_color]];
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+}
+[[/foreach]]

@@ -1,0 +1,8 @@
+function SetParameters()
+	{
+	$this->RegisterModulePlugin();
+	$this->RegisterRoute('/hike\/cat\/(?P<returnid>[0-9]+)\/(?P<category_id>[0-9]+)$/',
+		 array('action'=>'category'));
+	$this->RegisterRoute('/hike\/hike\/(?P<returnid>[0-9]+)\/(?P<hike_id>[0-9]+)$/',
+		 array('action'=>'hike'));
+	}

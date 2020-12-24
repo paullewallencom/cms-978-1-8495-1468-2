@@ -1,0 +1,2 @@
+.stocktable th { font-weight: bold; padding-right: 0.5em; }
+.stocktable td { padding: 0.25em; border: 1px solid black; }

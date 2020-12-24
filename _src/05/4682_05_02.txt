@@ -1,0 +1,24 @@
+<?php
+if (!isset($gCms)) exit;
+
+$taboptarray = array('mysql' => 'TYPE=MyISAM');
+$dict = NewDataDictionary($db);
+
+$fields = "
+	knight_id I KEY,
+	first_name C(80) NOTNULL,
+	last_name C(80) NOTNULL,
+	victories I DEFAULT 0,
+	defeats I DEFAULT 0";
+
+$sqlarray = $dict->CreateTableSQL(cms_db_prefix().'module_knight_roster',
+	$fields, $taboptarray);
+$dict->ExecuteSQLArray($sqlarray);
+
+$sqlarray = $dict->CreateIndexSQL(cms_db_prefix().'mod_kr_nameidx',
+	cms_db_prefix().'module_knight_roster', 'last_name,first_name');
+$dict->ExecuteSQLArray($sqlarray);
+$sqlarray = $dict->CreateIndexSQL(cms_db_prefix().'mod_kr_vicidx',
+	cms_db_prefix().'module_knight_roster', 'victories');
+$dict->ExecuteSQLArray($sqlarray);
+?>

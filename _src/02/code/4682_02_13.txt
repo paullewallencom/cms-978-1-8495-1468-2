@@ -1,0 +1,5 @@
+{if $page_alias eq 'home'}
+		{global_content name='welcome'}
+{else}
+		{global_content name='something_else'}
+{/if}

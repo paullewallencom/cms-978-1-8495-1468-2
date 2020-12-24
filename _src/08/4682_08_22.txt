@@ -1,0 +1,5 @@
+{if $message!=''}<p class="pagemessage">{$message}</p>{/if}
+{$form_start}
+	<p>{$input_seasonal}</p>
+	<p>{$submit}</p>
+{$form_end}

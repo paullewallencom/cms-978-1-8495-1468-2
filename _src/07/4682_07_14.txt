@@ -1,0 +1,2 @@
+git config --global user.name "Isaac Newton"
+git config --global user.email "sir_isaac@cambridge.edu"

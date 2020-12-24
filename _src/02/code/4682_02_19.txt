@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{if $count > 0}
+{assign var='now' value=$smarty.now|strtotime}
+{foreach from=$nodelist item=node}
+ <url>
+    <loc>{$node->url|escape:'html'}</loc>
+    <lastmod>{$node->modified|date_format:'%Y-%m-%dT%T-08:00'}</lastmod>
+    <changefreq>{assign var='mod' value=$node->modified|strtotime}{math assign='age' equation="(n-m)/86400" n=$smarty.now m=$mod}{if $age < 2}hourly{elseif $age< 14}daily{elseif $age < 30}weekly{else}monthly{/if}</changefreq>
+    <priority>{math equation='1/depth' depth=$node->depth}</priority>
+  </url>
+{/foreach}
+{/if}
+</urlset>

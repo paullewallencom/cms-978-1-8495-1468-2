@@ -1,0 +1,15 @@
+samuelg$ git commit -m "Merged changes"
+Created commit 35ca79e: Merged changes
+
+samuelg$ git pull origin master
+From git@git.cmsmadesimple.org:ajaxmaps
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+
+samuelg$ git push origin master
+Counting objects: 10, done.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 620 bytes, done.
+Total 6 (delta 2), reused 0 (delta 0)
+To git@git.cmsmadesimple.org:ajaxmaps.git
+   340e5d2..35ca79e  master -> master

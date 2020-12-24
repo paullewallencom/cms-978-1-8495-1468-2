@@ -1,0 +1,12 @@
+<div id="red">
+	<h1>Red Box</h1>
+	<p>This is a red box</p>
+</div>
+<div id="green">
+	<h1>Green Box</h1>
+	<p>This is a green box</p>
+</div>
+<div id="blue">
+	<h1>Blue Box</h1>
+	<p>This is a blue box</p>
+</div>

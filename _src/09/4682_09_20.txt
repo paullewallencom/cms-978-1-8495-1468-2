@@ -1,0 +1,14 @@
+<?php
+if (!isset($gCms)) exit;
+	
+$sites = array(
+	'/\sCMS Made Simple/',
+	'/\sCMS Module Factory/'
+	);
+$links = array(
+	' <a href="http://www.cmsmadesimple.org">CMS Made Simple</a>',
+	' <a href="http://www.cmsmodulefactory.com">CMS Module Factory</a>'
+	);
+	
+$params['content'] = preg_replace($sites, $links, $params['content']);
+?>

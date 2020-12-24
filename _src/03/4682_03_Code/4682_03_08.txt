@@ -1,0 +1,9 @@
+$gCms = cmsms();
+$smarty = $gCms->GetSmarty();
+
+$newsitems = $smarty->get_template_vars('items');
+foreach ($newsitems as $item)
+	{
+	echo $item->titlelink.'<br />';
+	echo $item->summary.'<br />';
+	}

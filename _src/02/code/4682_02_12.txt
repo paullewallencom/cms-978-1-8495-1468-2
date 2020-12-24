@@ -1,0 +1,3 @@
+{if $content_obj->GetPropertyValue('extra2') eq 'true'}
+		{global_content name='welcome'}
+{/if}

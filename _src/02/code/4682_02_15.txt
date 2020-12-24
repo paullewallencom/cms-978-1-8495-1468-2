@@ -1,0 +1,5 @@
+<?php
+$lang['admin']['extra1'] = 'Make';
+$lang['admin']['extra2'] = 'Model Year';
+$lang['admin']['extra3'] = 'Mileage';
+?>

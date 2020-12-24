@@ -1,0 +1,4 @@
+[[assign var='dark_color' value='#9f1326']]
+[[assign var='main_color' value='#ff3f59']]
+[[assign var='background_color' value='#efe0e2']]
+[[assign var='highlight_color' value='#ff8f9e']]

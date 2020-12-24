@@ -1,0 +1,2 @@
+$this->AddEventHandler('Core', 'AddUserPost', true);
+$this->AddEventHandler('Core', 'DeleteUserPre', true);

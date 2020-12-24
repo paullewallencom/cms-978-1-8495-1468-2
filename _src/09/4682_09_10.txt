@@ -1,0 +1,4 @@
+function GetEventDescription($eventname)
+{
+  return $this->Lang('event_description_'.$eventname);
+}

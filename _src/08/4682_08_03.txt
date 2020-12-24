@@ -1,0 +1,25 @@
+<?php
+if (!isset($gCms)) exit;
+
+$tab = '';
+if (!empty($params['active_tab']))
+	{
+	$tab = $params['active_tab'];
+	}
+$smarty->assign('tab_headers',
+	$this->StartTabHeaders().
+	$this->SetTabHeader('movies','Movies', ('movies' == $tab)).
+	$this->SetTabHeader('categories','Categories', ('categories' == $tab)).
+	$this->SetTabHeader('settings','Settings', ('settings' == $tab)).
+	$this->EndTabHeaders().
+	$this->StartTabContent()
+	);
+$smarty->assign('start_movies_tab',$this->StartTab('movies', $params));
+$smarty->assign('start_categories_tab',$this->StartTab('categories', $params));
+$smarty->assign('start_settings_tab',$this->StartTab('settings', $params));
+
+$smarty->assign('tab_end',$this->EndTab());
+$smarty->assign('tab_footer',$this->EndTabContent());
+
+echo $this->ProcessTemplate('admin_panel.tpl');
+?>

@@ -1,0 +1,6 @@
+<h2>{$usercount} Users</h2>
+<ul>
+{foreach from=$personnel item=entry}
+	<li>{$entry.first_name} {$entry.last_name}, {$entry.group_name}</li>
+{/foreach}
+</ul>

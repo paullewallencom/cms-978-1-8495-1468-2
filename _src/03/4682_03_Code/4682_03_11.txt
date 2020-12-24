@@ -1,0 +1,39 @@
+$symbols = array('aapl','goog','ibm','gknt','msft','orcl');
+$columns = array('Symbol','Last Trade','Last Trade Date','Last Trade Time',
+'Change','Open','High','Low','Volume');
+
+$curl = curl_init('http://download.finance.yahoo.com/d/quotes.csv?f=sl1d1t1c1ohgv&s='.
+	implode('+',$symbols));
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HEADER, false);
+curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 1);
+
+$results = curl_exec($curl);
+curl_close($curl);
+if ($results === false)
+   {
+   echo 'Stock information temporarily unavailable.';
+   }
+else
+   {
+	$stock = explode("\n",$results);
+
+	echo '<table class="stocktable"><tr>';
+	foreach ($columns as $thisCol)
+		{
+		echo '<th>'.$thisCol.'</th>';
+		}
+	echo '</tr>';
+
+	foreach ($stock as $thisStock)
+		{
+   		$details = explode(',',$thisStock);
+   		echo '<tr>';
+   		foreach ($details as $thisDetail)
+			{
+			echo '<td>'.str_replace('"','',$thisDetail).'</td>';
+			}
+		echo '</tr>';
+		}
+	echo '</table>';
+	}

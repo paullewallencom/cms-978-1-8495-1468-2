@@ -1,0 +1,18 @@
+<?php
+if (!isset($gCms)) exit;
+
+$taboptarray = array('mysql' => 'TYPE=MyISAM');
+$dict = NewDataDictionary($db);
+
+$fields = "
+	enemy_id I KEY,
+	name C(255),
+	planned_fate X";
+
+$sqlarray = $dict->CreateTableSQL(cms_db_prefix().'module_enemies',
+	$fields, $taboptarray);
+$dict->ExecuteSQLArray($sqlarray);
+
+$db->CreateSequence(cms_db_prefix().'module_enemies_seq');
+
+?>

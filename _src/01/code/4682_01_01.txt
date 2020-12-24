@@ -1,0 +1,16 @@
+<?php
+function smarty_cms_function_helloworld($params, &$smarty)
+{
+	return "Howdy, World! You're visiting a site made with CMS Made Simple version ".CMS_VERSION;
+}
+
+function smarty_cms_help_function_helloworld()
+{
+	echo "Put the tag {helloworld} in your page or template for a special message.";
+}
+
+function smarty_cms_about_function_helloworld()
+{
+	echo "Hello World version 1.0, written by your_name <you@yourdomain.com>";
+}
+?>

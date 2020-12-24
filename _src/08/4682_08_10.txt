@@ -1,0 +1,1 @@
+$this->Audit(0,'Fantasy League Module',$this->Lang('install_log',$this->GetVersion()));

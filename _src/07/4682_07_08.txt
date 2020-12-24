@@ -1,0 +1,5 @@
+samuelg$ svn up
+Conflict discovered in 'dbrescue.module.php'.
+Select: (p) postpone, (df) diff-full, (e) edit,
+        (mc) mine-conflict, (tc) theirs-conflict,
+        (s) show all options:

@@ -1,0 +1,9 @@
+<?php
+if (!isset($gCms)) exit;
+
+$contentops = $gCms->GetContentOperations();
+$content_obj = $contentops->getContentObject();			
+
+echo "This car is a ".$content_obj->GetPropertyValue('color')." ".$content_obj->GetPropertyValue('marque').'.';
+
+?>

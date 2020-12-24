@@ -1,0 +1,27 @@
+<?php
+if (!isset($gCms)) exit;
+
+$votes = array('Aye'=>'yes', 'Nay'=>'no');
+$event_params = array('ip'=>$_SERVER['REMOTE_ADDR']);
+
+if (isset($params['vote']))
+	{
+	$event_params['vote'] = $params['vote'];
+	$this->SendEvent('OnVoteFormSubmitted', $event_params);
+	echo 'Your opinion has been received: '.array_search($params['vote'],$votes);
+	return;
+	}
+$this->SendEvent('OnVoteFormDisplayed', $event_params);
+
+$smarty->assign('form_start',
+	$this->CreateFormStart($id, 'default', $returnid));
+
+$smarty->assign('input_vote',
+	$this->CreateInputRadioGroup($id, 'vote', $votes));
+
+$smarty->assign('submit',
+	$this->CreateInputSubmit($id, 'submit', 'Submit'));
+$smarty->assign('form_end', $this->CreateFormEnd());
+
+echo $this->ProcessTemplate('form.tpl');
+?>

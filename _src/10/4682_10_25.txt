@@ -1,0 +1,29 @@
+<?php
+if (!isset($gCms)) exit;
+
+$taboptarray = array('mysql' => 'TYPE=MyISAM');
+$dict = NewDataDictionary($db);
+
+$fields = "
+	pie_id I KEY AUTOINCREMENT,
+	name C(255),
+	description X";
+
+$sqlarray = $dict->CreateTableSQL(cms_db_prefix().'module_pies',
+	$fields, $taboptarray);
+$dict->ExecuteSQLArray($sqlarray);
+
+$insert_sql = 'insert into '.cms_db_prefix().
+	'module_pies (pie_id,name,description) values (?,?,?)';
+
+$res = $db->Execute($insert_sql,array(1,'Apple',
+	'Delectable and tart, Apple is always a favorite.'));
+$res = $db->Execute($insert_sql,array(2,'Strawberry-Rhubarb',
+	'Tangy and sweet, this is good with whipped cream.'));
+$res = $db->Execute($insert_sql,array(3,'Cherry',
+	'Most versions are far too sweet, but outstanding when done right'));
+$res = $db->Execute($insert_sql,array(4,'Key-Lime',
+	'Great with strong dark coffee.'));
+$res = $db->Execute($insert_sql,array(5,'Pumpkin',
+	'Worth eating all year, not just for Thanksgiving.'));
+?>

@@ -1,0 +1,1 @@
+$this->SetPreference('seasonal_templates', 1);

@@ -1,0 +1,59 @@
+<?php
+class Cars extends CMSModule
+	{
+	var $colors = array('Red'=>'red','Yellow'=>'yellow','Silver'=>'silver');
+	var $marques = array('Select One'=>'','BMW'=>'BMW','Bentley'=>'Bentley',
+		'Ferrari'=>'Ferrari','Jaguar'=>'Jaguar','Lamborghini'=>'Lamborghini');
+	
+	function GetName()
+		{
+		return 'Cars';
+		}
+		
+	function GetVersion()
+		{
+		return '0.1';
+		}
+		
+	function SetParameters()
+		{
+		$this->RegisterModulePlugin();
+		}
+
+	function IsPluginModule()
+		{
+		return true;
+		}
+		
+	function HasCapability($capability,$params = array())
+		{
+		if ($capability == 'contentblocks')
+			return true;
+		return false;
+		}
+		
+	function GetContentBlockInput($blockName,$value,$params,$adding = false)
+		{
+		switch ($blockName) {
+			case 'marque':
+				return $this->CreateInputDropdown('',$blockName,$this->marques,-1,$value);
+			case 'color':
+				return $this->CreateInputDropdown('',$blockName,$this->colors,-1,$value);
+			default:
+				return 'Unknown block '.$blockName;
+			}
+		}
+		
+	function GetContentBlockValue($blockName,$blockParams,$inputParams)
+		{
+		if (isset($inputParams[$blockName]))
+			return $inputParams[$blockName];
+		}
+	
+	function ValidateContentBlockValue($blockName,$value,$blockparams)
+		{
+		if ($blockName == 'marque' && empty($value))
+			return 'Must specify a Marque!';
+		}
+	}
+?>

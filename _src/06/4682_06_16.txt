@@ -1,0 +1,4 @@
+// assuming page alias is in $alias variable
+$gCms = cmsms();
+$contentops = $gCms->GetContentOperations();
+$content_id = $contentops->GetPageIDFromAlias( $alias );

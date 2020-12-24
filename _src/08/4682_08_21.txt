@@ -1,0 +1,24 @@
+<?php
+if (!isset($gCms)) exit;
+
+$message = '';
+if (isset($params['seasonal_templates']))
+	{
+	$this->SetPreference('seasonal_templates', $params['seasonal_templates']);
+	$message='Settings Updated';
+	}
+$smarty->assign('message',$message);
+$smarty->assign('form_start',
+	$this->CreateFormStart($id, 'defaultadmin', $returnid));
+
+$smarty->assign('input_seasonal',
+	$this->CreateInputHidden($id,'seasonal_templates',0).
+	$this->CreateInputCheckbox($id, 'seasonal_templates', 1, $this->GetPreference('seasonal_templates',0)).
+	$this->CreateLabelForInput($id, 'seasonal_templates', 'Change weather template based on season?'));
+
+$smarty->assign('submit',
+	$this->CreateInputSubmit($id, 'submit', 'Submit'));
+$smarty->assign('form_end', $this->CreateFormEnd());
+
+echo $this->ProcessTemplate('form.tpl');
+?>

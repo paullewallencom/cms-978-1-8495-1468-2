@@ -1,0 +1,10 @@
+mysql> show profiles;
++----------+------------+-------------------------------------------------------------------------------------------+
+| Query_ID | Duration   | Query                                                                                     |
++----------+------------+-------------------------------------------------------------------------------------------+
+|        1 | 0.05230500 | select * from cms_module_knight_roster where first_name='Robin' and last_name like 'Not%' | 
+|        2 | 0.04476100 | select count(*) from cms_module_knight_roster where victories > 350                       | 
+|        3 | 0.00072600 | select * from cms_module_knight_roster where first_name='Robin' and last_name like 'Not%' | 
+|        4 | 0.02537000 | select count(*) from cms_module_knight_roster where victories > 350                       | 
++----------+------------+-------------------------------------------------------------------------------------------+
+4 rows in set (0.00 sec)

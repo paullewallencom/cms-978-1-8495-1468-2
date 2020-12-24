@@ -1,0 +1,16 @@
+<?php
+if (!isset($gCms)) exit;
+
+$db= $this->GetDb();
+$res = $db->Execute('select * from '.cms_db_prefix().
+	'module_pies where pie_id=?', array($params['pie_id']));
+if ($res && $row=$res->FetchRow())
+	{
+	echo '<h2>'.$row['name'].'</h2>';
+	echo '<p>'.$row['description'].'</p>';
+	}
+else
+	{
+	echo "[unknown pie]";
+	}
+?>

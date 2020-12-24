@@ -1,0 +1,7 @@
+$gCms=cmsms();
+$contentops = $gCms->GetContentOperations();
+$content_obj = $contentops->getContentObject();
+echo 'Current content object is "'.$content_obj->Name().'"<br />';
+echo 'which was created on '.$content_obj->GetCreationDate().'<br />';
+echo 'its alias is "'.$content_obj->Alias().'"<br />';
+echo 'and its URL is "'.$content_obj->GetURL().'"<br />';

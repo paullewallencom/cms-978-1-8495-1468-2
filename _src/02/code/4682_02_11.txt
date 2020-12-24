@@ -1,0 +1,5 @@
+{* Start left side *}
+          <div id="left" class="core-float-left">
+{if $page_alias eq 'home'}
+		{global_content name='welcome'}
+{/if}

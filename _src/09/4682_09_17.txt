@@ -1,0 +1,9 @@
+<?php
+if (!isset($gCms)) exit;
+	
+$message = 'FYI: A new CMS admin user "'.$params['user']->firstname.
+	' '.$params['user']->lastname.'" ('.$params['user']->username.
+	') has been added.';
+
+$this->NotifyAllAdmins($message,'CMS New Admin',$params['user']->id);
+?>

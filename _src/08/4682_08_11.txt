@@ -1,0 +1,1 @@
+$lang['install_log'] = 'Fantasy League Module version %s has been installed';

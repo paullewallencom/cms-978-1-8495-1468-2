@@ -1,0 +1,9 @@
+samuelg$ svn log dbrescue.module.tpl 
+------------------------------------------------------------------------
+r77 | samuelg | 2010-11-22 21:10:11 -0800 (Mon, 22 Nov 2010) | 1 line
+
+Fix for Forge bug report #3744, switched preg_replace with str_replace
+------------------------------------------------------------------------
+r75 | samuelg | 2010-11-20 14:05:32 -0800 (Sat, 20 Nov 2010) | 19 lines
+
+Tried to optimize the admin display queries.

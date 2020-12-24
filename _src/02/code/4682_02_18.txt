@@ -1,0 +1,7 @@
+{foreach from=$nodelist item=node}
+	<div style="float:left; padding:10px;">
+		<img src="/uploads/images/personnel/thumb_{$node->alias}.jpg" alt="{$node->menutext}" />
+		<br />
+		<a href="{$node->url}">{$node->menutext}</a>, {$node->extra1}
+	</div>
+{/foreach}

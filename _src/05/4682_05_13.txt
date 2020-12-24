@@ -1,0 +1,4 @@
+mysql> describe cms_module_enemies;
+ERROR 1146 (42S02): Table 'cmsmadesimple.cms_module_enemies' doesn't exist
+mysql> describe cms_module_enemies_seq;
+ERROR 1146 (42S02): Table 'cmsmadesimple.cms_module_enemies_seq' doesn't exist

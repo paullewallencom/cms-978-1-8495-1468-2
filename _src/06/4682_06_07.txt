@@ -1,0 +1,3 @@
+<?php
+if (!isset($gCms)) exit;
+error_log(debug_display($params,'Parameters',false,false));

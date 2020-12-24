@@ -1,0 +1,18 @@
+<?php
+if (!isset($gCms)) exit;
+
+$db = $this->GetDb();
+$dict = NewDataDictionary( $db );
+
+$fields="
+	sighting_id I KEY AUTOINCREMENT,
+	name C(40),
+	shape C(10),
+	had_lights I,
+	description X
+";
+
+$sqlarray = $dict->CreateTableSQL( cms_db_prefix()."module_ufotracker",$fields);
+$dict->ExecuteSQLArray($sqlarray);
+
+?>

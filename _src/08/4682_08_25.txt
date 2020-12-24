@@ -1,0 +1,15 @@
+function GetNotificationOutput($priority=2) 
+	{
+	$gCms = cmsms();
+	$db = $gCms->GetDb();
+	$rcount = $db->GetOne('select count(*) from '.cms_db_prefix().'module_shopmanager');
+    if ($priority < 4 && $rcount == 0 )
+		{
+		$ret = new stdClass;
+		$ret->priority = 2;
+		$ret->html='You have not added any items to your inventory. '.
+			$this->CreateLink('', 'defaultadmin', '', 'Click here to add items');
+		return $ret;
+		}
+	return '';
+	}

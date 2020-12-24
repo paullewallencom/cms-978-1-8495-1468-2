@@ -1,0 +1,5 @@
+<h2>What Say You?</h2>
+{$form_start}
+	<p>{$input_vote}</p>
+	<p>{$submit}</p>
+{$form_end}

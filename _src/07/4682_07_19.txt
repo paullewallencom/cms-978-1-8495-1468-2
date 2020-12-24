@@ -1,0 +1,8 @@
+samuelg$ git status
+# On branch version1.1
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   action.generate_coords.php
+#	modified:   action.display_map.php
+#   new file:   action.update_map.php

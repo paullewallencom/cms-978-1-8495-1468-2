@@ -1,0 +1,31 @@
+[[assign var='box_width' value='300']]
+[[assign var='middle_width' value='10']]
+[[assign var='left_percent' value='20']]
+
+[[math assign='left_size' equation='(box_width - middle_width) * left_percent/100' box_width=$box_width middle_width=$middle_width left_percent=$left_percent]]
+
+#wrapper {
+	border: 1px solid black;
+	width: [[$box_width]]px;
+	min-height: 80px;
+	}
+	
+#middle_portion{
+	float: left;
+	width: [[$middle_width]]px;
+	min-height:80px;
+	}
+
+#left_portion {
+	float: left;
+	width: [[$left_size]]px;
+	background: #ffbfc9;
+	min-height: 80px;
+  }
+
+#right_portion {
+	float: right;
+	width: [[$box_width-$left_size-$middle_width]]px;
+	background: #bfc4ff;
+	min-height: 80px;
+	}

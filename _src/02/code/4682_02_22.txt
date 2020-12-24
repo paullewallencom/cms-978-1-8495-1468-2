@@ -1,0 +1,18 @@
+{literal}
+<script type="text/javascript">
+
+function confirm_exit(e) {
+	if(!e) e = window.event;
+	e.cancelBubble = true;
+	e.returnValue = 'You will be leaving the page "{/literal}{title}{literal}"?';
+
+	if (e.stopPropagation) {
+		e.stopPropagation();
+		e.preventDefault();
+	}
+}
+
+window.onbeforeunload=confirm_exit;
+
+</script>
+{/literal}

@@ -1,0 +1,15 @@
+<?php
+if (!isset($gCms)) exit;
+
+$vals = array('bg,lg,270,EFEFEF,0,BBBBBB,1',
+	'chxs=0,676767,12.5','chxt=x','chs=400x225','cht=p','chd=s:fMJGD',
+	'chdl=Procrastinating|Meetings|Coding|Debugging|Documenting',
+	'chl=50%25|20%25|15%25|10%25|5%25&chma=35,10,23,10',
+	'chtt=Development+Time');
+
+echo '<h1>Research Data</h1>';
+echo '<img src="http://chart.apis.google.com/chart?chf=';
+echo implode($vals,'&');
+echo '" alt="chart" />';
+
+?>

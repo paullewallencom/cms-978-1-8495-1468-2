@@ -1,0 +1,22 @@
+{process_pagedata}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<head>
+<title>{sitename} - {title}</title>
+{metadata}
+{cms_stylesheet}
+</head>
+<body>
+<div id="header"><h1>{sitename}</h1></div>
+<div id="menu">{menu collapse=1}</div>
+<div id="content">
+  <h1>{title}</h1>
+  {Cars}
+  {capture}
+    {content_module module='Cars' block='marque' label='Marque'}
+    {content_module module='Cars' block='color' label='Color'}
+  {/capture}
+  {content}
+</div>
+</body>
+</html>

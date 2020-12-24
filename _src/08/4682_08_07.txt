@@ -1,0 +1,14 @@
+{$tab_headers}
+   {$start_ideas_tab}
+		<ul>
+			<li>Fuzzy, glow-in-the-dark Kittens</li>
+			<li>Rainbow-colored Bunnies</li>
+			<li>Hot cocoa and blankies</li>
+		</ul>
+   {$tab_end}
+   {if $start_devices_tab!=''}
+		{$start_devices_tab}
+			{$devices}
+		{$tab_end}
+   {/if}
+{$tab_footer}

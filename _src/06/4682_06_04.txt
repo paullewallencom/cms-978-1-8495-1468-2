@@ -1,0 +1,8 @@
+{if $message!=''}<h2>{$message}</h2>{/if}
+{$form_start}
+<p>{$input_name}</p>
+<p>{$input_type}</p>
+<p>{$input_lights}{$label_lights}</p>
+<p>{$title_description}<br />{$input_description}</p>
+<p>{$submit}</p>
+{$form_end}
